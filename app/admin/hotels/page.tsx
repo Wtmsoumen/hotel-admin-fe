@@ -164,7 +164,7 @@ export default function HotelsPage() {
   }
 
   const inputCls = (err?: string) =>
-    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
+    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
 
   const isLoading = apiStatus === "loading" || apiStatus === "idle";
 
@@ -175,7 +175,7 @@ export default function HotelsPage() {
         <div className="flex gap-2 flex-wrap">
           {CATEGORIES.map((c) => (
             <button key={c} onClick={() => { setFilterCat(c); setPage(1); }}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${c === filterCat ? "bg-gold text-dark" : "bg-dark-card border border-dark-border text-dark-muted hover:text-white hover:border-gold/50"}`}>
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${c === filterCat ? "bg-[#D8A95B] text-white" : "bg-dark-card border border-dark-border text-dark-muted hover:text-foreground hover:border-gold/50"}`}>
               {c}
             </button>
           ))}
@@ -197,9 +197,9 @@ export default function HotelsPage() {
             </svg>
             <input type="text" placeholder="Search by location..." value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-              className="pl-9 pr-4 py-2 bg-dark-card border border-dark-border rounded-lg text-sm text-white placeholder-dark-muted focus:outline-none focus:border-gold transition-colors w-52" />
+              className="pl-9 pr-4 py-2 bg-dark-card border border-dark-border rounded-lg text-sm text-foreground placeholder-dark-muted focus:outline-none focus:border-gold transition-colors w-52" />
           </div>
-          <button onClick={openAdd} className="flex items-center gap-2 px-4 py-2 bg-gold hover:bg-gold-light text-dark text-sm font-semibold rounded-lg transition-colors">
+          <button onClick={openAdd} className="flex items-center gap-2 px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-sm font-semibold rounded-lg transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
             </svg>
@@ -224,7 +224,7 @@ export default function HotelsPage() {
             <div key={s.label} className="bg-dark-card border border-dark-border rounded-xl px-4 py-3 flex items-center gap-3">
               <span className="text-2xl">{s.icon}</span>
               <div>
-                <p className="text-white font-bold text-lg leading-tight">{s.value}</p>
+                <p className="text-foreground font-bold text-lg leading-tight">{s.value}</p>
                 <p className="text-dark-muted text-xs">{s.label}</p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function HotelsPage() {
       {/* Table */}
       <div className="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
         <div className="px-5 py-4 border-b border-dark-border flex items-center justify-between">
-          <h2 className="text-white font-semibold">All Hotels</h2>
+          <h2 className="text-foreground font-semibold">All Hotels</h2>
           <span className="text-dark-muted text-xs">{isLoading ? "Loading…" : `${hotels.length} of ${total}`}</span>
         </div>
         <div className="overflow-x-auto">
@@ -254,30 +254,30 @@ export default function HotelsPage() {
                   <tr key={hotel.id} className={`border-b border-dark-border/50 hover:bg-dark-hover/50 transition-colors ${i === hotels.length - 1 ? "border-0" : ""}`}>
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-gold/20 border border-gold/20 flex items-center justify-center shrink-0">
+                        <div className="w-9 h-9 rounded-lg bg-[#D8A95B]/20 border border-gold/20 flex items-center justify-center shrink-0">
                           <span className="text-gold text-xs font-bold">{hotel.image}</span>
                         </div>
                         <div>
-                          <p className="text-white text-xs font-medium">{hotel.name}</p>
+                          <p className="text-foreground text-xs font-medium">{hotel.name}</p>
                           <p className="text-dark-muted text-[10px]">{hotel.id}</p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-4 text-dark-muted text-xs whitespace-nowrap">{hotel.location}</td>
                     <td className="px-5 py-4">
-                      <span className="text-xs bg-gold/10 text-gold border border-gold/20 px-2 py-0.5 rounded-full">{hotel.category}</span>
+                      <span className="text-xs bg-[#D8A95B]/10 text-gold border border-gold/20 px-2 py-0.5 rounded-full">{hotel.category}</span>
                     </td>
-                    <td className="px-5 py-4 text-white text-xs">{hotel.rooms}</td>
+                    <td className="px-5 py-4 text-foreground text-xs">{hotel.rooms}</td>
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-1">
                         <svg className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
-                        <span className="text-white text-xs">{hotel.rating}</span>
+                        <span className="text-foreground text-xs">{hotel.rating}</span>
                         <span className="text-dark-muted text-[10px]">({hotel.reviews})</span>
                       </div>
                     </td>
-                    <td className="px-5 py-4 text-white text-xs font-semibold">{hotel.price}</td>
+                    <td className="px-5 py-4 text-foreground text-xs font-semibold">{hotel.price}</td>
                     <td className="px-5 py-4">
                       <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[hotel.status]}`}>{hotel.status}</span>
                     </td>
@@ -309,17 +309,17 @@ export default function HotelsPage() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="px-2.5 h-7 rounded-md text-xs font-medium bg-dark border border-dark-border text-dark-muted hover:text-white disabled:opacity-40 transition-colors"
+              className="px-2.5 h-7 rounded-md text-xs font-medium bg-dark border border-dark-border text-dark-muted hover:text-foreground disabled:opacity-40 transition-colors"
             >
               ←
             </button>
-            <span className="px-2.5 h-7 flex items-center rounded-md text-xs font-medium bg-gold text-dark">
+            <span className="px-2.5 h-7 flex items-center rounded-md text-xs font-medium bg-[#D8A95B] text-white">
               {page}
             </span>
             <button
               onClick={() => setPage((p) => p + 1)}
               disabled={hotels.length < 8}
-              className="px-2.5 h-7 rounded-md text-xs font-medium bg-dark border border-dark-border text-dark-muted hover:text-white disabled:opacity-40 transition-colors"
+              className="px-2.5 h-7 rounded-md text-xs font-medium bg-dark border border-dark-border text-dark-muted hover:text-foreground disabled:opacity-40 transition-colors"
             >
               →
             </button>
@@ -332,8 +332,8 @@ export default function HotelsPage() {
         title={modalMode === "add" ? "Add New Hotel" : "Edit Hotel"} size="lg"
         footer={
           <>
-            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleSave} className="px-4 py-2 bg-gold hover:bg-gold-light text-dark font-semibold rounded-lg text-sm transition-colors">
+            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleSave} className="px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white font-semibold rounded-lg text-sm transition-colors">
               {modalMode === "add" ? "Add Hotel" : "Save Changes"}
             </button>
           </>
@@ -381,13 +381,13 @@ export default function HotelsPage() {
       <Modal open={!!deleteTarget} onClose={() => setDeleteTarget(null)} title="Delete Hotel" size="sm"
         footer={
           <>
-            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg text-sm transition-colors">Delete</button>
+            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-foreground font-semibold rounded-lg text-sm transition-colors">Delete</button>
           </>
         }
       >
         <p className="text-dark-muted text-sm">
-          Are you sure you want to delete <span className="text-white font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
+          Are you sure you want to delete <span className="text-foreground font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
         </p>
       </Modal>
     </div>

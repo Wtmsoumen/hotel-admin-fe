@@ -36,10 +36,10 @@ export default function Modal({ open, onClose, title, children, footer, size = "
       <div className={`relative w-full ${sizeClasses[size]} bg-dark-card border border-dark-border rounded-xl shadow-2xl flex flex-col max-h-[90vh]`}>
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-dark-border shrink-0">
-          <h2 className="text-white font-semibold">{title}</h2>
+          <h2 className="text-foreground font-semibold">{title}</h2>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-dark border border-dark-border text-dark-muted hover:text-white hover:border-dark-muted transition-colors"
+            className="p-1.5 rounded-lg bg-dark border border-dark-border text-dark-muted hover:text-foreground hover:border-dark-muted transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

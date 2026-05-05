@@ -93,7 +93,7 @@ export default function MessagesPage() {
           <div key={s.label} className="bg-dark-card border border-dark-border rounded-xl p-4 flex items-center gap-3">
             <span className="text-2xl">{s.icon}</span>
             <div>
-              <p className="text-white font-bold text-lg">{s.value}</p>
+              <p className="text-foreground font-bold text-lg">{s.value}</p>
               <p className="text-dark-muted text-xs">{s.label}</p>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function MessagesPage() {
         {/* Message list */}
         <div className="xl:col-span-1 bg-dark-card border border-dark-border rounded-xl overflow-hidden">
           <div className="px-4 py-3 border-b border-dark-border flex items-center justify-between">
-            <h2 className="text-white font-semibold text-sm">Inbox</h2>
+            <h2 className="text-foreground font-semibold text-sm">Inbox</h2>
             {unreadCount > 0 && (
               <span className="text-[10px] bg-blue-500/15 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">{unreadCount} unread</span>
             )}
@@ -118,17 +118,17 @@ export default function MessagesPage() {
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-gold/20 border border-gold/20 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#D8A95B]/20 border border-gold/20 flex items-center justify-center shrink-0">
                       <span className="text-gold text-[10px] font-bold">{m.name.split(" ").map((n) => n[0]).join("")}</span>
                     </div>
                     <div className="min-w-0">
-                      <p className={`text-xs font-medium truncate ${m.status === "Unread" ? "text-white" : "text-dark-muted"}`}>{m.name}</p>
+                      <p className={`text-xs font-medium truncate ${m.status === "Unread" ? "text-foreground" : "text-dark-muted"}`}>{m.name}</p>
                       <p className="text-dark-muted text-[10px] truncate max-w-[140px]">{m.subject}</p>
                     </div>
                   </div>
                   <div className="text-right shrink-0">
                     <p className="text-dark-muted text-[10px]">{m.time}</p>
-                    {m.status === "Unread" && <div className="w-1.5 h-1.5 rounded-full bg-gold ml-auto mt-1" />}
+                    {m.status === "Unread" && <div className="w-1.5 h-1.5 rounded-full bg-[#D8A95B] ml-auto mt-1" />}
                   </div>
                 </div>
               </div>
@@ -146,12 +146,12 @@ export default function MessagesPage() {
               <div className="px-5 py-4 border-b border-dark-border">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold/20 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#D8A95B]/20 border border-gold/20 flex items-center justify-center shrink-0">
                       <span className="text-gold text-sm font-bold">{selected.name.split(" ").map((n) => n[0]).join("")}</span>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <p className="text-white font-semibold text-sm">{selected.name}</p>
+                        <p className="text-foreground font-semibold text-sm">{selected.name}</p>
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[selected.status]}`}>{selected.status}</span>
                         <span className={`text-[10px] font-semibold ${priorityStyles[selected.priority]}`}>● {selected.priority} Priority</span>
                       </div>
@@ -178,7 +178,7 @@ export default function MessagesPage() {
 
               {/* Subject & Message */}
               <div className="p-5 flex-1">
-                <h3 className="text-white font-semibold text-base mb-4">{selected.subject}</h3>
+                <h3 className="text-foreground font-semibold text-base mb-4">{selected.subject}</h3>
                 <div className="bg-dark rounded-xl border border-dark-border p-4">
                   {selected.message.split("\n\n").map((para, i) => (
                     <p key={i} className={`text-dark-muted text-sm leading-relaxed ${i > 0 ? "mt-3" : ""}`}>{para}</p>
@@ -203,15 +203,15 @@ export default function MessagesPage() {
                       value={reply}
                       onChange={(e) => { setReply(e.target.value); if (replyError) setReplyError(""); }}
                       placeholder="Write your reply..."
-                      className="w-full bg-dark px-4 pt-3 text-sm text-white placeholder-dark-muted focus:outline-none resize-none"
+                      className="w-full bg-dark px-4 pt-3 text-sm text-foreground placeholder-dark-muted focus:outline-none resize-none"
                     />
                     <div className="flex items-center justify-between px-4 py-2.5 bg-dark border-t border-dark-border">
                       <span className="text-dark-muted text-xs">
-                        Replying to <span className="text-white">{selected.email}</span>
+                        Replying to <span className="text-foreground">{selected.email}</span>
                       </span>
                       <button
                         type="submit"
-                        className="flex items-center gap-2 px-4 py-1.5 bg-gold hover:bg-gold-light text-dark text-xs font-semibold rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-4 py-1.5 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-xs font-semibold rounded-lg transition-colors"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

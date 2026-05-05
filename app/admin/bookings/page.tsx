@@ -181,14 +181,14 @@ export default function BookingsPage() {
   }
 
   const inputCls = (err?: string) =>
-    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
+    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
 
   return (
     <div className="space-y-5">
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {[
-          { label: "Total Bookings", value: bookings.length.toString(), color: "text-white" },
+          { label: "Total Bookings", value: bookings.length.toString(), color: "text-foreground" },
           { label: "Confirmed", value: bookings.filter((b) => b.status === "Confirmed").length.toString(), color: "text-blue-400" },
           { label: "Checked In", value: bookings.filter((b) => b.status === "Checked In").length.toString(), color: "text-emerald-400" },
           { label: "Checked Out", value: bookings.filter((b) => b.status === "Checked Out").length.toString(), color: "text-dark-muted" },
@@ -207,7 +207,7 @@ export default function BookingsPage() {
           <div className="flex gap-2 flex-wrap">
             {FILTERS.map((f) => (
               <button key={f} onClick={() => setActiveFilter(f)}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${f === activeFilter ? "bg-gold text-dark" : "bg-dark border border-dark-border text-dark-muted hover:text-white"}`}>
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${f === activeFilter ? "bg-[#D8A95B] text-white" : "bg-dark border border-dark-border text-dark-muted hover:text-foreground"}`}>
                 {f}
               </button>
             ))}
@@ -218,9 +218,9 @@ export default function BookingsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input type="text" placeholder="Search bookings..." value={search} onChange={(e) => setSearch(e.target.value)}
-                className="pl-8 pr-3 py-1.5 bg-dark border border-dark-border rounded-lg text-xs text-white placeholder-dark-muted focus:outline-none focus:border-gold w-44" />
+                className="pl-8 pr-3 py-1.5 bg-dark border border-dark-border rounded-lg text-xs text-foreground placeholder-dark-muted focus:outline-none focus:border-gold w-44" />
             </div>
-            <button onClick={openAdd} className="flex items-center gap-1.5 px-3 py-1.5 bg-gold hover:bg-gold-light text-dark text-xs font-semibold rounded-lg transition-colors">
+            <button onClick={openAdd} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-xs font-semibold rounded-lg transition-colors">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
               </svg>
@@ -243,18 +243,18 @@ export default function BookingsPage() {
                 <tr key={b.id} className={`border-b border-dark-border/50 hover:bg-dark-hover/50 transition-colors ${i === filtered.length - 1 ? "border-0" : ""}`}>
                   <td className="px-5 py-4 text-gold text-xs font-mono">{b.id}</td>
                   <td className="px-5 py-4">
-                    <p className="text-white text-xs font-medium">{b.guest}</p>
+                    <p className="text-foreground text-xs font-medium">{b.guest}</p>
                     <p className="text-dark-muted text-[10px]">{b.email}</p>
                   </td>
                   <td className="px-5 py-4">
-                    <p className="text-white text-xs">{b.hotel}</p>
+                    <p className="text-foreground text-xs">{b.hotel}</p>
                     <p className="text-dark-muted text-[10px]">{b.room}</p>
                   </td>
                   <td className="px-5 py-4 text-dark-muted text-xs whitespace-nowrap">{b.checkIn}</td>
                   <td className="px-5 py-4 text-dark-muted text-xs whitespace-nowrap">{b.checkOut}</td>
-                  <td className="px-5 py-4 text-white text-xs text-center">{b.nights}</td>
+                  <td className="px-5 py-4 text-foreground text-xs text-center">{b.nights}</td>
                   <td className="px-5 py-4">
-                    <p className="text-white text-xs font-semibold">{b.amount}</p>
+                    <p className="text-foreground text-xs font-semibold">{b.amount}</p>
                     <p className="text-dark-muted text-[10px]">Paid: {b.paid}</p>
                   </td>
                   <td className="px-5 py-4">
@@ -284,9 +284,9 @@ export default function BookingsPage() {
         title={modalMode === "add" ? "Create New Booking" : "Edit Booking"} size="lg"
         footer={
           <>
-            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
             <button onClick={handleSave} disabled={submitting}
-              className="px-4 py-2 bg-gold hover:bg-gold-light disabled:opacity-60 text-dark font-semibold rounded-lg text-sm transition-colors flex items-center gap-2">
+              className="px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] disabled:opacity-60 text-white font-semibold rounded-lg text-sm transition-colors flex items-center gap-2">
               {submitting ? (
                 <>
                   <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">

@@ -59,12 +59,12 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gold/10 border border-gold/20 mb-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#D8A95B]/10 border border-gold/20 mb-4">
             <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <h1 className="text-2xl font-bold text-white">Hotel Admin</h1>
+          <h1 className="text-2xl font-bold text-foreground">Hotel Admin</h1>
           <p className="text-dark-muted text-sm mt-1">Sign in to your admin account</p>
         </div>
 
@@ -88,7 +88,7 @@ export default function LoginPage() {
                 value={form.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 placeholder="admin@example.com"
-                className={`w-full bg-dark border rounded-lg px-3 py-2.5 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${errors.email ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`}
+                className={`w-full bg-dark border rounded-lg px-3 py-2.5 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${errors.email ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`}
               />
               {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
             </div>
@@ -105,10 +105,10 @@ export default function LoginPage() {
                   value={form.password}
                   onChange={(e) => handleChange("password", e.target.value)}
                   placeholder="Enter your password"
-                  className={`w-full bg-dark border rounded-lg px-3 py-2.5 pr-10 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${errors.password ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`}
+                  className={`w-full bg-dark border rounded-lg px-3 py-2.5 pr-10 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${errors.password ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`}
                 />
                 <button type="button" onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-muted hover:text-white transition-colors">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-muted hover:text-foreground transition-colors">
                   {showPassword ? (
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
@@ -134,7 +134,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 bg-gold hover:bg-gold-light disabled:opacity-60 text-dark font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+              className="w-full py-2.5 bg-[#D8A95B] hover:bg-[#D8A95B] disabled:opacity-60 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>

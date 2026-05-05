@@ -36,7 +36,7 @@ const STATS = [
   },
   {
     label: "Active Bookings", value: "1,284", change: "+12% vs last month", positive: true,
-    color: "bg-gold/10 text-gold",
+    color: "bg-[#D8A95B]/10 text-gold",
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>,
   },
   {
@@ -177,7 +177,7 @@ export default function AdminDashboard() {
               <div className={`p-2.5 rounded-lg ${stat.color}`}>{stat.icon}</div>
               <span className="text-xs text-emerald-400 font-medium bg-emerald-500/10 px-2 py-0.5 rounded-full">↑</span>
             </div>
-            <p className="text-2xl font-bold text-white mb-1">{stat.value}</p>
+            <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>
             <p className="text-dark-muted text-sm">{stat.label}</p>
             <p className="text-xs text-emerald-400 mt-1">{stat.change}</p>
           </div>
@@ -190,7 +190,7 @@ export default function AdminDashboard() {
         <div className="lg:col-span-2 bg-dark-card border border-dark-border rounded-xl p-5">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-white font-semibold">Revenue Overview</h2>
+              <h2 className="text-foreground font-semibold">Revenue Overview</h2>
               <p className="text-dark-muted text-xs mt-0.5">Last 6 months</p>
             </div>
             <span className="text-gold text-sm font-semibold">$94,280</span>
@@ -199,13 +199,13 @@ export default function AdminDashboard() {
             {MONTHLY_REVENUE.map((m) => (
               <div key={m.month} className="flex-1 flex flex-col items-center gap-1.5">
                 <div
-                  className="w-full rounded-t-md bg-gold/20 hover:bg-gold/40 transition-colors relative group cursor-pointer"
+                  className="w-full rounded-t-md bg-[#D8A95B]/20 hover:bg-[#D8A95B]/40 transition-colors relative group cursor-pointer"
                   style={{ height: `${m.value}%` }}
                 >
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-dark-card border border-dark-border text-white text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-dark-card border border-dark-border text-foreground text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
                     ${m.value}K
                   </div>
-                  <div className="absolute bottom-0 w-full rounded-t-md bg-gold" style={{ height: "60%" }} />
+                  <div className="absolute bottom-0 w-full rounded-t-md bg-[#D8A95B]" style={{ height: "60%" }} />
                 </div>
                 <span className="text-dark-muted text-[10px]">{m.month}</span>
               </div>
@@ -216,12 +216,11 @@ export default function AdminDashboard() {
         {/* Top Hotels */}
         <div className="bg-dark-card border border-dark-border rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-white font-semibold">Top Hotels</h2>
-            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-              hotelsSource === "live"
+            <h2 className="text-foreground font-semibold">Top Hotels</h2>
+            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${hotelsSource === "live"
                 ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
                 : "text-dark-muted bg-dark border-dark-border"
-            }`}>
+              }`}>
               {hotelsSource === "live" ? "Live · /hotels/popular" : "Offline mode"}
             </span>
           </div>
@@ -231,12 +230,12 @@ export default function AdminDashboard() {
               : topHotels.map((hotel, i) => (
                 <div key={hotel.name}>
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-white text-xs font-medium truncate max-w-[130px]">{hotel.name}</span>
+                    <span className="text-foreground text-xs font-medium truncate max-w-[130px]">{hotel.name}</span>
                     <span className="text-dark-muted text-xs shrink-0">{hotel.occupancy}%</span>
                   </div>
                   <div className="h-1.5 bg-dark rounded-full overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gold transition-all"
+                      className="h-full rounded-full bg-[#D8A95B] transition-all"
                       style={{ width: `${hotel.occupancy}%`, opacity: 1 - i * 0.15 }}
                     />
                   </div>
@@ -256,7 +255,7 @@ export default function AdminDashboard() {
         {/* Recent Bookings */}
         <div className="xl:col-span-2 bg-dark-card border border-dark-border rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-border">
-            <h2 className="text-white font-semibold">Recent Bookings</h2>
+            <h2 className="text-foreground font-semibold">Recent Bookings</h2>
             <a href="/admin/bookings" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
               View all →
             </a>
@@ -279,15 +278,15 @@ export default function AdminDashboard() {
                     <td className="px-5 py-3.5 text-gold text-xs font-mono">{b.id}</td>
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-[#D8A95B]/20 flex items-center justify-center shrink-0">
                           <span className="text-gold text-[9px] font-bold">{b.guest.split(" ").map((n) => n[0]).join("")}</span>
                         </div>
-                        <span className="text-white text-xs">{b.guest}</span>
+                        <span className="text-foreground text-xs">{b.guest}</span>
                       </div>
                     </td>
                     <td className="px-5 py-3.5 text-dark-muted text-xs hidden md:table-cell">{b.hotel}</td>
                     <td className="px-5 py-3.5 text-dark-muted text-xs hidden lg:table-cell">{b.checkIn}</td>
-                    <td className="px-5 py-3.5 text-white text-xs font-semibold">{b.amount}</td>
+                    <td className="px-5 py-3.5 text-foreground text-xs font-semibold">{b.amount}</td>
                     <td className="px-5 py-3.5">
                       <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${STATUS_STYLES[b.status]}`}>
                         {b.status}
@@ -303,13 +302,12 @@ export default function AdminDashboard() {
         {/* Recent Reviews */}
         <div className="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-border">
-            <h2 className="text-white font-semibold">Recent Reviews</h2>
+            <h2 className="text-foreground font-semibold">Recent Reviews</h2>
             <div className="flex items-center gap-2">
-              <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-                reviewsSource === "live"
+              <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${reviewsSource === "live"
                   ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
                   : "text-dark-muted bg-dark border-dark-border"
-              }`}>
+                }`}>
                 {reviewsSource === "live" ? "Live · /testimonials" : "Offline mode"}
               </span>
               <a href="/admin/reviews" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
@@ -324,11 +322,11 @@ export default function AdminDashboard() {
                 <div key={r.guest + r.hotel} className="px-5 py-4 hover:bg-white/[0.02] transition-colors">
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-[#D8A95B]/20 flex items-center justify-center shrink-0">
                         <span className="text-gold text-[9px] font-bold">{r.guest.replace(".", "")[0]}</span>
                       </div>
                       <div>
-                        <p className="text-white text-xs font-medium">{r.guest}</p>
+                        <p className="text-foreground text-xs font-medium">{r.guest}</p>
                         <p className="text-dark-muted text-[10px]">{r.hotel}</p>
                       </div>
                     </div>

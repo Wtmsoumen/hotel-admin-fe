@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import stayentLogoYellow from "../../public/stayentLogoYellow.svg"
 
 const navItems = [
   {
@@ -122,16 +123,9 @@ export default function Sidebar() {
   return (
     <aside className="w-64 shrink-0 flex flex-col h-full bg-dark border-r border-dark-border">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-6 py-5 border-b border-dark-border">
-        <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center shrink-0">
-          <svg className="w-5 h-5 text-dark" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zM3 9h18V7H3v2zm0-6v2h18V3H3z" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-white font-bold text-sm leading-tight">Hotel Booking</p>
-          <p className="text-dark-muted text-xs">Admin Panel</p>
-        </div>
+      <div className="relative flex flex-col items-start gap-3 px-6 py-5 border-b border-dark-border">
+        <img src={stayentLogoYellow.src} alt="stayentLogoYellow" width={1920} height={1080} className="w-38 h-auto" />
+        <p className="text-[#ba8633] text-xs absolute bottom-[17%] left-[23%]">Admin Panel</p>
       </div>
 
       {/* Nav */}
@@ -144,18 +138,17 @@ export default function Sidebar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group ${
-                  isActive(item)
-                    ? "bg-gold/15 text-gold"
-                    : "text-dark-muted hover:text-white hover:bg-dark-hover"
-                }`}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group ${isActive(item)
+                  ? "bg-[#D8A95B]/15 text-gold"
+                  : "text-dark-muted hover:text-foreground hover:bg-dark-hover"
+                  }`}
               >
-                <span className={`shrink-0 transition-colors ${isActive(item) ? "text-gold" : "text-dark-muted group-hover:text-white"}`}>
+                <span className={`shrink-0 transition-colors ${isActive(item) ? "text-gold" : "text-dark-muted group-hover:text-foreground"}`}>
                   {item.icon}
                 </span>
                 {item.label}
                 {isActive(item) && (
-                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-gold" />
+                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#D8A95B]" />
                 )}
               </Link>
             </li>
@@ -170,18 +163,17 @@ export default function Sidebar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group ${
-                  isActive(item)
-                    ? "bg-gold/15 text-gold"
-                    : "text-dark-muted hover:text-white hover:bg-dark-hover"
-                }`}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group ${isActive(item)
+                  ? "bg-[#D8A95B]/15 text-gold"
+                  : "text-dark-muted hover:text-foreground hover:bg-dark-hover"
+                  }`}
               >
-                <span className={`shrink-0 transition-colors ${isActive(item) ? "text-gold" : "text-dark-muted group-hover:text-white"}`}>
+                <span className={`shrink-0 transition-colors ${isActive(item) ? "text-gold" : "text-dark-muted group-hover:text-foreground"}`}>
                   {item.icon}
                 </span>
                 {item.label}
                 {isActive(item) && (
-                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-gold" />
+                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#D8A95B]" />
                 )}
               </Link>
             </li>
@@ -192,11 +184,11 @@ export default function Sidebar() {
       {/* Profile */}
       <div className="px-3 py-4 border-t border-dark-border">
         <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-dark-hover cursor-pointer transition-colors">
-          <div className="w-8 h-8 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#D8A95B]/20 border border-gold/30 flex items-center justify-center shrink-0">
             <span className="text-gold text-xs font-semibold">AD</span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-white text-sm font-medium truncate">Admin User</p>
+            <p className="text-foreground text-sm font-medium truncate">Admin User</p>
             <p className="text-dark-muted text-xs truncate">admin@hotelbooking.com</p>
           </div>
           <svg className="w-4 h-4 text-dark-muted shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

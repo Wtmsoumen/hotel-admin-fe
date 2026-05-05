@@ -118,7 +118,7 @@ export default function ReviewsPage() {
         <div className="bg-dark-card border border-dark-border rounded-xl p-5">
           <div className="flex items-center gap-4">
             <div className="text-center">
-              <p className="text-5xl font-bold text-white">
+              <p className="text-5xl font-bold text-foreground">
                 {reviews.length ? (reviews.reduce((a, r) => a + r.rating, 0) / reviews.length).toFixed(1) : "—"}
               </p>
               <StarRating rating={5} />
@@ -129,7 +129,7 @@ export default function ReviewsPage() {
                 <div key={d.stars} className="flex items-center gap-2">
                   <span className="text-dark-muted text-xs w-4">{d.stars}</span>
                   <div className="flex-1 h-1.5 bg-dark rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-gold" style={{ width: `${d.pct}%` }} />
+                    <div className="h-full rounded-full bg-[#D8A95B]" style={{ width: `${d.pct}%` }} />
                   </div>
                   <span className="text-dark-muted text-xs w-8">{d.pct}%</span>
                 </div>
@@ -149,7 +149,7 @@ export default function ReviewsPage() {
           ].map((s) => (
             <div key={s.label} className="bg-dark-card border border-dark-border rounded-xl p-3 text-center">
               <span className="text-xl">{s.icon}</span>
-              <p className="text-white font-bold text-base mt-1">{s.value}</p>
+              <p className="text-foreground font-bold text-base mt-1">{s.value}</p>
               <p className="text-dark-muted text-[10px]">{s.label}</p>
             </div>
           ))}
@@ -161,7 +161,7 @@ export default function ReviewsPage() {
         <div className="flex gap-2">
           {["All", "Published", "Pending", "Flagged"].map((f) => (
             <button key={f} onClick={() => setActiveFilter(f)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${f === activeFilter ? "bg-gold text-dark" : "bg-dark-card border border-dark-border text-dark-muted hover:text-white"}`}>
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${f === activeFilter ? "bg-[#D8A95B] text-white" : "bg-dark-card border border-dark-border text-dark-muted hover:text-foreground"}`}>
               {f}
             </button>
           ))}
@@ -200,14 +200,14 @@ export default function ReviewsPage() {
           {filtered.map((r) => (
             <div key={r.id} className="bg-dark-card border border-dark-border rounded-xl p-5 hover:border-gold/20 transition-colors">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold/20 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#D8A95B]/20 border border-gold/20 flex items-center justify-center shrink-0">
                   <span className="text-gold text-sm font-bold">{r.avatar}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2 flex-wrap">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <p className="text-white font-medium text-sm">{r.guest}</p>
+                        <p className="text-foreground font-medium text-sm">{r.guest}</p>
                         <StarRating rating={r.rating} size="xs" />
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[r.status]}`}>{r.status}</span>
                       </div>
@@ -235,7 +235,7 @@ export default function ReviewsPage() {
                     </div>
                   </div>
 
-                  {r.title && <h4 className="text-white text-sm font-medium mt-2">{r.title}</h4>}
+                  {r.title && <h4 className="text-foreground text-sm font-medium mt-2">{r.title}</h4>}
                   <p className="text-dark-muted text-xs mt-1 leading-relaxed">{r.comment}</p>
 
                   <div className="flex items-center justify-between mt-3 pt-3 border-t border-dark-border/50">

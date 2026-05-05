@@ -89,7 +89,7 @@ export default function SettingsPage() {
     ]);
   }
 
-  const inputCls = "w-full bg-dark border border-dark-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-gold transition-colors";
+  const inputCls = "w-full bg-dark border border-dark-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-gold transition-colors";
 
   return (
     <div className="space-y-5 max-w-4xl">
@@ -106,7 +106,7 @@ export default function SettingsPage() {
       {/* General */}
       <div className="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
         <div className="px-5 py-4 border-b border-dark-border">
-          <h2 className="text-white font-semibold">General Settings</h2>
+          <h2 className="text-foreground font-semibold">General Settings</h2>
           <p className="text-dark-muted text-xs mt-0.5">Basic platform configuration</p>
         </div>
         <div className="p-5 space-y-4">
@@ -165,7 +165,7 @@ export default function SettingsPage() {
       {/* Booking Settings */}
       <div className="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
         <div className="px-5 py-4 border-b border-dark-border">
-          <h2 className="text-white font-semibold">Booking Settings</h2>
+          <h2 className="text-foreground font-semibold">Booking Settings</h2>
           <p className="text-dark-muted text-xs mt-0.5">Configure booking rules and policies</p>
         </div>
         <div className="p-5 space-y-4">
@@ -212,10 +212,10 @@ export default function SettingsPage() {
           <div className="space-y-3">
             {bookingToggles.map((toggle, i) => (
               <div key={toggle.label} className="flex items-center justify-between py-2 border-b border-dark-border/50 last:border-0">
-                <span className="text-white text-sm">{toggle.label}</span>
+                <span className="text-foreground text-sm">{toggle.label}</span>
                 <button
                   onClick={() => toggleBookingOption(i)}
-                  className={`relative w-10 h-5 rounded-full transition-colors shrink-0 ${toggle.checked ? "bg-gold" : "bg-dark border border-dark-border"}`}
+                  className={`relative w-10 h-5 rounded-full transition-colors shrink-0 ${toggle.checked ? "bg-[#D8A95B]" : "bg-dark border border-dark-border"}`}
                 >
                   <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${toggle.checked ? "translate-x-5" : "translate-x-0.5"}`} />
                 </button>
@@ -228,19 +228,19 @@ export default function SettingsPage() {
       {/* Notifications */}
       <div className="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
         <div className="px-5 py-4 border-b border-dark-border">
-          <h2 className="text-white font-semibold">Notifications</h2>
+          <h2 className="text-foreground font-semibold">Notifications</h2>
           <p className="text-dark-muted text-xs mt-0.5">Configure alert preferences</p>
         </div>
         <div className="p-5 space-y-2">
           {notifications.map((n, i) => (
             <div key={n.label} className="flex items-center justify-between py-3 border-b border-dark-border/40 last:border-0">
               <div>
-                <p className="text-white text-sm">{n.label}</p>
+                <p className="text-foreground text-sm">{n.label}</p>
                 <p className="text-dark-muted text-xs">{n.sub}</p>
               </div>
               <button
                 onClick={() => toggleNotification(i)}
-                className={`relative w-10 shrink-0 rounded-full transition-colors h-5 ${n.enabled ? "bg-gold" : "bg-dark border border-dark-border"}`}
+                className={`relative w-10 shrink-0 rounded-full transition-colors h-5 ${n.enabled ? "bg-[#D8A95B]" : "bg-dark border border-dark-border"}`}
               >
                 <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${n.enabled ? "translate-x-5" : "translate-x-0.5"}`} />
               </button>
@@ -251,10 +251,10 @@ export default function SettingsPage() {
 
       {/* Save */}
       <div className="flex justify-end gap-3">
-        <button onClick={handleReset} className="px-5 py-2 bg-dark-card border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm font-medium transition-colors">
+        <button onClick={handleReset} className="px-5 py-2 bg-dark-card border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm font-medium transition-colors">
           Reset to Defaults
         </button>
-        <button onClick={handleSave} className="px-5 py-2 bg-gold hover:bg-gold-light text-dark rounded-lg text-sm font-semibold transition-colors">
+        <button onClick={handleSave} className="px-5 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white rounded-lg text-sm font-semibold transition-colors">
           Save Changes
         </button>
       </div>

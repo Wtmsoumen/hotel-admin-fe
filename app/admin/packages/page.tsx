@@ -35,7 +35,7 @@ const includeOptions = ["Flights", "Hotel", "Breakfast", "All Meals", "Tours", "
 const emojiOptions = ["🌴", "🗼", "🏙️", "🐘", "🏔️", "🕌", "🏛️", "🦁", "🏖️", "🏰", "🌿", "🌊"];
 
 const badgeStyles: Record<string, string> = {
-  "Best Seller": "bg-gold/10 text-gold border-gold/20",
+  "Best Seller": "bg-[#D8A95B]/10 text-gold border-gold/20",
   Popular: "bg-blue-500/10 text-blue-400 border-blue-500/20",
   Premium: "bg-purple-500/10 text-purple-400 border-purple-500/20",
   "Best Value": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
@@ -143,8 +143,7 @@ export default function PackagesPage() {
   }
 
   const inputCls = (err?: string) =>
-    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${
-      err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"
+    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"
     }`;
 
   return (
@@ -158,7 +157,7 @@ export default function PackagesPage() {
           { label: "Avg. Discount", value: `${Math.round(packages.reduce((a, p) => a + ((parsePrice(p.originalPrice) - parsePrice(p.price)) / parsePrice(p.originalPrice)) * 100, 0) / packages.length)}%`, sub: "Off regular price" },
         ].map((s) => (
           <div key={s.label} className="bg-dark-card border border-dark-border rounded-xl p-4">
-            <p className="text-2xl font-bold text-white">{s.value}</p>
+            <p className="text-2xl font-bold text-foreground">{s.value}</p>
             <p className="text-dark-muted text-xs mt-0.5">{s.label}</p>
             <p className="text-dark-muted/60 text-[10px] mt-1">{s.sub}</p>
           </div>
@@ -176,10 +175,10 @@ export default function PackagesPage() {
             placeholder="Search packages..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-9 pr-4 py-2 bg-dark-card border border-dark-border rounded-lg text-sm text-white placeholder-dark-muted focus:outline-none focus:border-gold w-52"
+            className="pl-9 pr-4 py-2 bg-dark-card border border-dark-border rounded-lg text-sm text-foreground placeholder-dark-muted focus:outline-none focus:border-gold w-52"
           />
         </div>
-        <button onClick={openAdd} className="flex items-center gap-2 px-4 py-2 bg-gold hover:bg-gold-light text-dark text-sm font-semibold rounded-lg transition-colors">
+        <button onClick={openAdd} className="flex items-center gap-2 px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-sm font-semibold rounded-lg transition-colors">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
           </svg>
@@ -204,7 +203,7 @@ export default function PackagesPage() {
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-white font-semibold text-sm">{pkg.name}</h3>
+                        <h3 className="text-foreground font-semibold text-sm">{pkg.name}</h3>
                         {pkg.badge && (
                           <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${badgeStyles[pkg.badge] ?? ""}`}>
                             {pkg.badge}
@@ -234,16 +233,15 @@ export default function PackagesPage() {
                       <span className="text-dark-muted text-[10px]">{soldPct}% sold</span>
                     </div>
                     <div className="h-1.5 bg-dark rounded-full overflow-hidden">
-                      <div className="h-full rounded-full bg-gold" style={{ width: `${soldPct}%` }} />
+                      <div className="h-full rounded-full bg-[#D8A95B]" style={{ width: `${soldPct}%` }} />
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between mt-3 pt-3 border-t border-dark-border">
-                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
-                      pkg.status === "Active"
-                        ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
-                        : "bg-red-500/15 text-red-400 border border-red-500/20"
-                    }`}>
+                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${pkg.status === "Active"
+                      ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
+                      : "bg-red-500/15 text-red-400 border border-red-500/20"
+                      }`}>
                       {pkg.status}
                     </span>
                     <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -274,8 +272,8 @@ export default function PackagesPage() {
         size="xl"
         footer={
           <>
-            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleSave} className="px-4 py-2 bg-gold hover:bg-gold-light text-dark font-semibold rounded-lg text-sm transition-colors">
+            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleSave} className="px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white font-semibold rounded-lg text-sm transition-colors">
               {modalMode === "add" ? "Create Package" : "Save Changes"}
             </button>
           </>
@@ -349,9 +347,8 @@ export default function PackagesPage() {
                     key={item}
                     type="button"
                     onClick={() => toggleInclude(item)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
-                      checked ? "bg-gold/20 text-gold border-gold/40" : "bg-dark border-dark-border text-dark-muted hover:border-gold/30 hover:text-white"
-                    }`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${checked ? "bg-[#D8A95B]/20 text-gold border-gold/40" : "bg-dark border-dark-border text-dark-muted hover:border-gold/30 hover:text-foreground"
+                      }`}
                   >
                     {item}
                   </button>
@@ -370,13 +367,13 @@ export default function PackagesPage() {
         size="sm"
         footer={
           <>
-            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg text-sm transition-colors">Delete</button>
+            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-foreground font-semibold rounded-lg text-sm transition-colors">Delete</button>
           </>
         }
       >
         <p className="text-dark-muted text-sm">
-          Are you sure you want to delete <span className="text-white font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
+          Are you sure you want to delete <span className="text-foreground font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
         </p>
       </Modal>
     </div>

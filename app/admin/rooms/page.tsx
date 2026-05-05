@@ -48,7 +48,7 @@ const typeColors: Record<string, string> = {
   Standard: "bg-blue-500/10 text-blue-400 border-blue-500/20",
   Deluxe: "bg-purple-500/10 text-purple-400 border-purple-500/20",
   Superior: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-  Suite: "bg-gold/10 text-gold border-gold/20",
+  Suite: "bg-[#D8A95B]/10 text-gold border-gold/20",
   Villa: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   Cabin: "bg-amber-500/10 text-amber-400 border-amber-500/20",
 };
@@ -184,7 +184,7 @@ export default function RoomsPage() {
   }
 
   const inputCls = (err?: string) =>
-    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-white placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
+    `w-full bg-dark border rounded-lg px-3 py-2 text-sm text-foreground placeholder-dark-muted focus:outline-none transition-colors ${err ? "border-red-500/60 focus:border-red-500" : "border-dark-border focus:border-gold"}`;
 
   const isLoading = apiStatus === "loading";
 
@@ -199,7 +199,7 @@ export default function RoomsPage() {
           { label: "Maintenance", value: rooms.filter((r) => r.status === "Maintenance").length.toString(), sub: "" },
         ].map((s) => (
           <div key={s.label} className="bg-dark-card border border-dark-border rounded-xl p-4">
-            <p className="text-2xl font-bold text-white">{s.value}</p>
+            <p className="text-2xl font-bold text-foreground">{s.value}</p>
             <p className="text-dark-muted text-xs mt-0.5">{s.label}</p>
             {s.sub && <p className="text-dark-muted/60 text-[10px] mt-1">{s.sub}</p>}
           </div>
@@ -209,18 +209,18 @@ export default function RoomsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Occupancy */}
         <div className="bg-dark-card border border-dark-border rounded-xl p-5">
-          <h2 className="text-white font-semibold mb-4">Occupancy by Type</h2>
+          <h2 className="text-foreground font-semibold mb-4">Occupancy by Type</h2>
           <div className="space-y-3">
             {occupancyData.map((d) => {
               const pct = Math.round((d.occupied / d.total) * 100);
               return (
                 <div key={d.type}>
                   <div className="flex justify-between mb-1">
-                    <span className="text-white text-xs">{d.type}</span>
+                    <span className="text-foreground text-xs">{d.type}</span>
                     <span className="text-dark-muted text-xs">{d.occupied}/{d.total} ({pct}%)</span>
                   </div>
                   <div className="h-1.5 bg-dark rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-gold" style={{ width: `${pct}%` }} />
+                    <div className="h-full rounded-full bg-[#D8A95B]" style={{ width: `${pct}%` }} />
                   </div>
                 </div>
               );
@@ -232,7 +232,7 @@ export default function RoomsPage() {
         <div className="lg:col-span-2 bg-dark-card border border-dark-border rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-border flex-wrap gap-2">
             <div className="flex items-center gap-2">
-              <h2 className="text-white font-semibold">Room Inventory</h2>
+              <h2 className="text-foreground font-semibold">Room Inventory</h2>
               {apiStatus === "offline" && <span className="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">Offline</span>}
               {apiStatus === "live" && <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full">Live</span>}
             </div>
@@ -251,7 +251,7 @@ export default function RoomsPage() {
                 <option>All Types</option>
                 {ROOM_TYPES.map((t) => <option key={t}>{t}</option>)}
               </select>
-              <button onClick={openAdd} className="flex items-center gap-1.5 px-3 py-1.5 bg-gold hover:bg-gold-light text-dark text-xs font-semibold rounded-lg transition-colors">
+              <button onClick={openAdd} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-xs font-semibold rounded-lg transition-colors">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                 </svg>
@@ -274,7 +274,7 @@ export default function RoomsPage() {
                   : filtered.map((room, i) => (
                     <tr key={room.id} className={`border-b border-dark-border/50 hover:bg-dark-hover/40 transition-colors ${i === filtered.length - 1 ? "border-0" : ""}`}>
                       <td className="px-4 py-3.5">
-                        <p className="text-white text-xs font-medium">{room.name}</p>
+                        <p className="text-foreground text-xs font-medium">{room.name}</p>
                         <p className="text-dark-muted text-[10px] font-mono">{room.id}</p>
                       </td>
                       <td className="px-4 py-3.5 text-dark-muted text-xs truncate max-w-[120px]">{room.hotel}</td>
@@ -282,7 +282,7 @@ export default function RoomsPage() {
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${typeColors[room.type] ?? ""}`}>{room.type}</span>
                       </td>
                       <td className="px-4 py-3.5 text-dark-muted text-xs whitespace-nowrap">{room.beds}</td>
-                      <td className="px-4 py-3.5 text-white text-xs font-semibold">{room.price}</td>
+                      <td className="px-4 py-3.5 text-foreground text-xs font-semibold">{room.price}</td>
                       <td className="px-4 py-3.5">
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[room.status]}`}>{room.status}</span>
                       </td>
@@ -314,8 +314,8 @@ export default function RoomsPage() {
         title={modalMode === "add" ? "Add New Room" : "Edit Room"} size="lg"
         footer={
           <>
-            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleSave} className="px-4 py-2 bg-gold hover:bg-gold-light text-dark font-semibold rounded-lg text-sm transition-colors">
+            <button onClick={closeModal} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleSave} className="px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white font-semibold rounded-lg text-sm transition-colors">
               {modalMode === "add" ? "Add Room" : "Save Changes"}
             </button>
           </>
@@ -376,7 +376,7 @@ export default function RoomsPage() {
                 const checked = form.amenities.includes(a);
                 return (
                   <button key={a} type="button" onClick={() => toggleAmenity(a)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${checked ? "bg-gold/20 text-gold border-gold/40" : "bg-dark border-dark-border text-dark-muted hover:border-gold/30 hover:text-white"}`}>
+                    className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${checked ? "bg-[#D8A95B]/20 text-gold border-gold/40" : "bg-dark border-dark-border text-dark-muted hover:border-gold/30 hover:text-foreground"}`}>
                     {a}
                   </button>
                 );
@@ -390,13 +390,13 @@ export default function RoomsPage() {
       <Modal open={!!deleteTarget} onClose={() => setDeleteTarget(null)} title="Delete Room" size="sm"
         footer={
           <>
-            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-white rounded-lg text-sm transition-colors">Cancel</button>
-            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg text-sm transition-colors">Delete</button>
+            <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 bg-dark border border-dark-border text-dark-muted hover:text-foreground rounded-lg text-sm transition-colors">Cancel</button>
+            <button onClick={handleDelete} className="px-4 py-2 bg-red-500 hover:bg-red-600 text-foreground font-semibold rounded-lg text-sm transition-colors">Delete</button>
           </>
         }
       >
         <p className="text-dark-muted text-sm">
-          Are you sure you want to delete <span className="text-white font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
+          Are you sure you want to delete <span className="text-foreground font-medium">{deleteTarget?.name}</span>? This action cannot be undone.
         </p>
       </Modal>
     </div>
