@@ -48,13 +48,6 @@ export default function Header() {
         <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#D8A95B] rounded-full" />
       </button>
 
-      {/* Quick add button */}
-      {/* <button className="flex items-center gap-2 px-4 py-2 bg-[#D8A95B] hover:bg-[#D8A95B] text-white text-sm font-semibold rounded-lg transition-colors">
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
-        </svg>
-        <span className="hidden sm:inline">Add New</span>
-      </button> */}
     </header>
   );
 }
