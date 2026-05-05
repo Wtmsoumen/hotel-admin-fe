@@ -256,7 +256,7 @@ export default function AdminDashboard() {
         <div className="xl:col-span-2 bg-dark-card border border-dark-border rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-border">
             <h2 className="text-foreground font-semibold">Recent Bookings</h2>
-            <a href="/admin/bookings" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
+            <a href="/bookings" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
               View all →
             </a>
           </div>
@@ -310,7 +310,7 @@ export default function AdminDashboard() {
                 }`}>
                 {reviewsSource === "live" ? "Live · /testimonials" : "Offline mode"}
               </span>
-              <a href="/admin/reviews" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
+              <a href="/reviews" className="text-gold text-xs font-medium hover:text-gold-light transition-colors">
                 View all →
               </a>
             </div>

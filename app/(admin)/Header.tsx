@@ -3,16 +3,16 @@
 import { usePathname } from "next/navigation";
 
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
-  "/admin": { title: "Dashboard", subtitle: "Welcome back, Admin" },
-  "/admin/hotels": { title: "Hotels", subtitle: "Manage hotel listings" },
-  "/admin/rooms": { title: "Rooms", subtitle: "Manage room inventory" },
-  "/admin/bookings": { title: "Bookings", subtitle: "Track reservations" },
-  "/admin/customers": { title: "Customers", subtitle: "Manage registered users" },
-  "/admin/destinations": { title: "Destinations", subtitle: "Manage travel destinations" },
-  "/admin/packages": { title: "Packages", subtitle: "Manage travel packages" },
-  "/admin/reviews": { title: "Reviews", subtitle: "Monitor customer feedback" },
-  "/admin/messages": { title: "Messages", subtitle: "Contact form submissions" },
-  "/admin/settings": { title: "Settings", subtitle: "Configure platform settings" },
+  "/": { title: "Dashboard", subtitle: "Welcome back, Admin" },
+  "/hotels": { title: "Hotels", subtitle: "Manage hotel listings" },
+  "/rooms": { title: "Rooms", subtitle: "Manage room inventory" },
+  "/bookings": { title: "Bookings", subtitle: "Track reservations" },
+  "/customers": { title: "Customers", subtitle: "Manage registered users" },
+  "/destinations": { title: "Destinations", subtitle: "Manage travel destinations" },
+  "/packages": { title: "Packages", subtitle: "Manage travel packages" },
+  "/reviews": { title: "Reviews", subtitle: "Monitor customer feedback" },
+  "/messages": { title: "Messages", subtitle: "Contact form submissions" },
+  "/settings": { title: "Settings", subtitle: "Configure platform settings" },
 };
 
 export default function Header() {

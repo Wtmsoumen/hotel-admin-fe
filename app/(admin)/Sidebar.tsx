@@ -7,7 +7,7 @@ import stayentLogoYellow from "../../public/stayentLogoYellow.svg"
 const navItems = [
   {
     label: "Dashboard",
-    href: "/admin",
+    href: "/",
     exact: true,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     label: "Hotels",
-    href: "/admin/hotels",
+    href: "/hotels",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -28,7 +28,7 @@ const navItems = [
   },
   {
     label: "Rooms",
-    href: "/admin/rooms",
+    href: "/rooms",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -38,7 +38,7 @@ const navItems = [
   },
   {
     label: "Bookings",
-    href: "/admin/bookings",
+    href: "/bookings",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -48,7 +48,7 @@ const navItems = [
   },
   {
     label: "Customers",
-    href: "/admin/customers",
+    href: "/customers",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -58,7 +58,7 @@ const navItems = [
   },
   {
     label: "Destinations",
-    href: "/admin/destinations",
+    href: "/destinations",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -70,7 +70,7 @@ const navItems = [
   },
   {
     label: "Packages",
-    href: "/admin/packages",
+    href: "/packages",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -80,7 +80,7 @@ const navItems = [
   },
   {
     label: "Reviews",
-    href: "/admin/reviews",
+    href: "/reviews",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -90,7 +90,7 @@ const navItems = [
   },
   {
     label: "Messages",
-    href: "/admin/messages",
+    href: "/messages",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
@@ -100,7 +100,7 @@ const navItems = [
   },
   {
     label: "Settings",
-    href: "/admin/settings",
+    href: "/settings",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75}
