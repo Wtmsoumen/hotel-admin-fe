@@ -37,3 +37,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #C49A3C;
 }
+
+button {
+  cursor: pointer;
+}

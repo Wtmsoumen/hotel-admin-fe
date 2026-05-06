@@ -275,7 +275,7 @@ export default function BookingsPage() {
 
         <div className="px-5 py-3 border-t border-dark-border flex items-center justify-between">
           <span className="text-dark-muted text-xs">Showing {filtered.length} of {bookings.length}</span>
-          <span className="text-dark-muted text-[10px]">New bookings via POST /api/v1/bookings/initiate</span>
+          {/* <span className="text-dark-muted text-[10px]">New bookings via POST /api/v1/bookings/initiate</span> */}
         </div>
       </div>
 
@@ -353,11 +353,11 @@ export default function BookingsPage() {
               </select>
             </div>
           </div>
-          {modalMode === "add" && (
+          {/* {modalMode === "add" && (
             <p className="text-dark-muted text-xs border border-dark-border rounded-lg px-3 py-2">
               Submitting will call <span className="font-mono text-gold">POST /api/v1/bookings/initiate</span> to create a booking session.
             </p>
-          )}
+          )} */}
         </div>
       </Modal>
     </div>
